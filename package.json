@@ -2,7 +2,7 @@
   "name": "ffmpeg-kit-react-native",
   "version": "1.0.0",
   "private": true,
-  "main": "react-native/ffmpeg-kit.js",
+  "main": "react-native/src/index.js",
   "files": [
     "react-native"
   ],
