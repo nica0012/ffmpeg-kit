@@ -1,0 +1,13 @@
+{
+  "name": "ffmpeg-kit-react-native",
+  "version": "1.0.0",
+  "private": true,
+  "main": "react-native/index.js",
+  "files": [
+    "react-native"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nica0012/ffmpeg-kit.git"
+  }
+}
