@@ -21,8 +21,11 @@ Pod::Spec.new do |s|
   s.dependency "React-Core"
 
   s.subspec 'min' do |ss|
-      ss.source_files      = '**/FFmpegKitReactNativeModule.m',
-                             '**/FFmpegKitReactNativeModule.h'
+    #   ss.source_files      = '**/FFmpegKitReactNativeModule.m',
+    #                          '**/FFmpegKitReactNativeModule.h'
+    ss.source_files = 'ios/**/FFmpegKitReactNativeModule.m',
+                  'ios/**/FFmpegKitReactNativeModule.h'
+
       ss.dependency 'ffmpeg-kit-ios-min', "6.0"
       ss.ios.deployment_target = '12.1'
   end
