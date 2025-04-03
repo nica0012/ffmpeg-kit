@@ -21,10 +21,10 @@ Pod::Spec.new do |s|
   s.dependency "React-Core"
 
   s.subspec 'min' do |ss|
-    #   ss.source_files      = '**/FFmpegKitReactNativeModule.m',
-    #                          '**/FFmpegKitReactNativeModule.h'
-    ss.source_files = 'ios/**/FFmpegKitReactNativeModule.m',
-                  'ios/**/FFmpegKitReactNativeModule.h'
+      ss.source_files      = '**/FFmpegKitReactNativeModule.m',
+                             '**/FFmpegKitReactNativeModule.h'
+    # ss.source_files = 'ios/**/FFmpegKitReactNativeModule.m',
+    #               'ios/**/FFmpegKitReactNativeModule.h'
 
       ss.dependency 'ffmpeg-kit-ios-min', "6.0"
       ss.ios.deployment_target = '12.1'
@@ -134,13 +134,13 @@ s.subspec 'full-gpl' do |ss|
                            'Frameworks/libswscale.xcframework'
   # Point Xcode to the folder containing ffmpegkit.framework for all arch slices.
   # Adjust the path if your structure differs:
-  ss.xcconfig = {
-    'FRAMEWORK_SEARCH_PATHS' => [
-      '$(PODS_TARGET_SRCROOT)/Frameworks/ffmpegkit.xcframework/ios-arm64_arm64e',
-      '$(PODS_TARGET_SRCROOT)/Frameworks/ffmpegkit.xcframework/ios-arm64_arm64e-simulator',
-      # ...and so on for each slice
-    ].join(' ')
-  }
+#   ss.xcconfig = {
+#     'FRAMEWORK_SEARCH_PATHS' => [
+#       '$(PODS_TARGET_SRCROOT)/Frameworks/ffmpegkit.xcframework/ios-arm64_arm64e',
+#       '$(PODS_TARGET_SRCROOT)/Frameworks/ffmpegkit.xcframework/ios-arm64_arm64e-simulator',
+#       # ...and so on for each slice
+#     ].join(' ')
+#   }
 
   ss.ios.deployment_target = '12.1'
 end
