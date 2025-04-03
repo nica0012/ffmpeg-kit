@@ -132,7 +132,16 @@ s.subspec 'full-gpl' do |ss|
                            'Frameworks/libavutil.xcframework',
                            'Frameworks/libswresample.xcframework',
                            'Frameworks/libswscale.xcframework'
-  ss.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/../Frameworks' }
+  # Point Xcode to the folder containing ffmpegkit.framework for all arch slices.
+  # Adjust the path if your structure differs:
+  ss.xcconfig = {
+    'FRAMEWORK_SEARCH_PATHS' => [
+      '$(PODS_TARGET_SRCROOT)/Frameworks/ffmpegkit.xcframework/ios-arm64_arm64e',
+      '$(PODS_TARGET_SRCROOT)/Frameworks/ffmpegkit.xcframework/ios-arm64_arm64e-simulator',
+      # ...and so on for each slice
+    ].join(' ')
+  }
+
   ss.ios.deployment_target = '12.1'
 end
 
