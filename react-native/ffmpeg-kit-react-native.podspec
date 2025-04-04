@@ -123,19 +123,24 @@ Pod::Spec.new do |s|
 
   # The updated subspec for full-gpl uses vendored frameworks from your self-built XCFrameworks.
   s.subspec 'full-gpl' do |ss|
-      ss.source_files = '**/FFmpegKitReactNativeModule.m',
-                        '**/FFmpegKitReactNativeModule.h'
-      ss.vendored_frameworks = 'Frameworks/ffmpegkit.xcframework',
-                               'Frameworks/libavcodec.xcframework',
-                               'Frameworks/libavdevice.xcframework',
-                               'Frameworks/libavfilter.xcframework',
-                               'Frameworks/libavformat.xcframework',
-                               'Frameworks/libavutil.xcframework',
-                               'Frameworks/libswresample.xcframework',
-                               'Frameworks/libswscale.xcframework'
-      ss.ios.deployment_target = '12.1'
+    ss.source_files = '**/FFmpegKitReactNativeModule.m',
+                      '**/FFmpegKitReactNativeModule.h'
+    ss.vendored_frameworks = 'Frameworks/ffmpegkit.xcframework',
+                             'Frameworks/libavcodec.xcframework',
+                             'Frameworks/libavdevice.xcframework',
+                             'Frameworks/libavfilter.xcframework',
+                             'Frameworks/libavformat.xcframework',
+                             'Frameworks/libavutil.xcframework',
+                             'Frameworks/libswresample.xcframework',
+                             'Frameworks/libswscale.xcframework'
+    # Force modules to be enabled and add the path to your Frameworks folder
+    ss.xcconfig = {
+      'CLANG_ENABLE_MODULES' => 'YES',
+      'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/../node_modules/ffmpeg-kit-react-native/react-native/Frameworks'
+    }
+    ss.ios.deployment_target = '12.1'
   end
-
+  
   # Optionally, you can leave the full-gpl-lts subspec if needed. It currently still depends on a prebuilt binary.
   # You might consider removing or updating this subspec if you want to use your self-built frameworks for LTS versions as well.
   s.subspec 'full-gpl-lts' do |ss|
